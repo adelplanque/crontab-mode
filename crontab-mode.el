@@ -86,13 +86,14 @@
    ;; Blank lines are bad!
    '("^[ \t]+$" . highlight)
    ;; Variable defs
-   '("^\\([A-Z_]+\\)=\\(.*\\)$" .
+   '("^\\([A-Z_]+[A-Z0-9a-z_]*\\)=\\(.*\\)$" .
      ((1 font-lock-keyword-face)
       (2 font-lock-string-face)) )
    ;; Cron lines
    ;; 50 * * * * /usr/gnu/bin/bash
    (cons
     (concat "^"
+	    "[ \t]*"
             crontab-unit-regexp crontab-sep-regexp
             crontab-unit-regexp crontab-sep-regexp
             crontab-unit-regexp crontab-sep-regexp
